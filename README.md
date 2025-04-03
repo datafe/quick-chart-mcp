@@ -1,6 +1,6 @@
 # Quick Chart MCP Server
 
-A Model Context Protocol (MCP) server that provides chart tools, allowing it to interact with the quick chart through a standardized interface. This implementation is based on the chart definition and enables users can open quick chart pages seamlessly.
+A Model Context Protocol (MCP) server that provides chart tools, allowing it to interact with the [quick chart](https://github.com/typpo/quickchart) through a standardized interface. This implementation is based on the chart definition and enables users can open quick chart pages seamlessly.
 
 ## Overview
 
@@ -78,7 +78,9 @@ Create a `.env` file with your credentials:
 
 ```env
 # Quick Chart Configuration
-NODE_ENV=development_or_product
+NODE_ENV=optional_development_or_product
+QUICK_CHART_DRAW_URL=optional_quick_chart_draw_url
+NEED_INSTALL_QUICK_CHART=optional_true_or_false
 ```
 
 ## Project Structure
@@ -96,6 +98,7 @@ quick-chart-mcp/
 The MCP server provides the following Quick Chart tools:
 
 * `GetChartImgLink` - Retrieve chart image link by parameters.
+* `InstallQuickChart` - Install quick chart service locally.
 
 ## Security Considerations
 

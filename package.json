@@ -1,6 +1,6 @@
 {
   "name": "quick-chart-mcp",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "A Model Context Protocol server for interacting with the QuickChart",
   "main": "build/index.js",
   "module": "build/index.js",

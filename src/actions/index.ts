@@ -1,11 +1,16 @@
 
 import getChartImgLink from "./agent/getChartImgLink.js";
-// import encodeJsonIntoLinkParameters from "./agent/encodeJsonIntoLinkParameters.js";
+import installQuickChart from "./agent/installQuickChart.js";
 import { EnumAction } from "../constants/index.js";
 
-export const ACTIONS = {
-  // [EnumAction.ENCODE_JSON_INTO_LINK_PARAMETERS]: encodeJsonIntoLinkParameters,
+const ACTIONS: any = {
   [EnumAction.GET_CHART_IMG_LINK]: getChartImgLink,
 }
+
+if (process.env.NEED_INSTALL_QUICK_CHART === 'true') {
+  ACTIONS[EnumAction.INSTALL_QUICK_CHART] = installQuickChart;
+}
+
+export { ACTIONS };
 
 export type { ActionTool, ActionExample, Handler } from "../types/action.js";
