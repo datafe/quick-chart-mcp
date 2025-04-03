@@ -17,7 +17,7 @@ const getInfoAction: ActionTool = {
   examples: [
     [
       {
-        input: { c: "{type:'bar',data:{labels:[2012,2013,2014,2015, 2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}" },
+        input: { c: { type: 'bar', data: { labels: [2012, 2013, 2014, 2015, 2016], datasets: [{ label: 'Users', data: [120, 60, 50, 180, 120] }] } } },
         output: {
           status: "success",
           message: "https://quickchart.io/chart?c=%7Btype%3A'bar'%2Cdata%3A%7Blabels%3A%5B2012%2C2013%2C2014%2C2015%2C%202016%5D%2Cdatasets%3A%5B%7Blabel%3A'Users'%2Cdata%3A%5B120%2C60%2C50%2C180%2C120%5D%7D%5D%7D%7D",
@@ -27,14 +27,14 @@ const getInfoAction: ActionTool = {
     ],
   ],
   schema: z.object({
-    c: z.string().describe("quick chart api's (quickchart.io) parameters and value is json string."),
+    json: z.any().describe("quick chart api's (quickchart.io) parameters and format is JSON object. The object does not include any functions, only values."),
   }),
   handler: async (agent: Client, input: Record<string, any>) => {
     try {
 
-      const { c } = input || {};
+      const { json } = input || {};
 
-      const response = await getChartImgLink(agent, c);
+      const response = await getChartImgLink(agent, json);
 
       return {
         status: "success",

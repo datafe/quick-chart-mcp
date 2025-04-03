@@ -1,4 +1,5 @@
 import Client from "../../Client/index.js";
+import bestEffortForJson from "../../utils/bestEffortForJson.js";
 import { quickChartUrl } from "../../constants/index.js";
 
 type Error = {
@@ -10,16 +11,22 @@ export interface CodeInfo { code: string; description?: string; descriptionEn?: 
 
 export default async function getChartImgLink(
   agent: Client,
-  c: string,
+  json: any,
 ) {
   try {
 
-    // check need to encodeURIComponent
-    if (c && (c?.includes('{') || c?.includes(',') || c?.includes('['))) {
-      c = encodeURIComponent(c);
+    let jsonStr = '{}';
+    try {
+      jsonStr = JSON.stringify(json || '{}');
+    } catch (e) {
+      console.error(e);
+    }
+    if (jsonStr && (jsonStr?.includes('{') || jsonStr?.includes(',') || jsonStr?.includes('['))) {
+      jsonStr = bestEffortForJson(jsonStr);
+      jsonStr = encodeURIComponent(jsonStr); // check need to encodeURIComponent
     }
 
-    const response = `${quickChartUrl}?c=${c || ''}`;
+    const response = `${quickChartUrl}?c=${jsonStr || ''}`;
 
     return response;
 
