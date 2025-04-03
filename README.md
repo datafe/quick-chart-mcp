@@ -53,6 +53,25 @@ open http://localhost:5173
 
 ## Configuration
 
+### MCP Configs
+
+``` json
+{
+  "mcpServers": {
+    "quick-chart-mcp": {
+      "autoApprove": [],
+      "disabled": false,
+      "timeout": 300,
+      "command": "npx",
+      "args": [
+        "quick-chart-mcp@1.0.13"
+      ],
+      "transportType": "stdio"
+    }
+  }
+}
+```
+
 ### Environment Setup
 
 Create a `.env` file with your credentials:
