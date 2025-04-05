@@ -1,0 +1,43 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required: []
+    properties:
+      NODE_ENV:
+        type: string
+        default: production
+        description: Node environment mode
+      PORT:
+        type: number
+        default: 3000
+        description: The port for the MCP server
+      QUICK_CHART_DRAW_URL:
+        type: string
+        default: ""
+        description: Optional Quick Chart draw URL override
+      NEED_INSTALL_QUICK_CHART:
+        type: boolean
+        default: false
+        description: Flag to indicate if quick chart service installation is required
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({
+      command: 'node',
+      args: ['build/index.js'],
+      env: {
+        NODE_ENV: config.NODE_ENV || 'production',
+        PORT: config.PORT ? config.PORT.toString() : '3000',
+        QUICK_CHART_DRAW_URL: config.QUICK_CHART_DRAW_URL || '',
+        NEED_INSTALL_QUICK_CHART: config.NEED_INSTALL_QUICK_CHART ? 'true' : 'false'
+      }
+    })
+  exampleConfig:
+    NODE_ENV: production
+    PORT: 3000
+    QUICK_CHART_DRAW_URL: https://quickchart.io
+    NEED_INSTALL_QUICK_CHART: false
