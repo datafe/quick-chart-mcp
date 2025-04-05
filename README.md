@@ -1,4 +1,5 @@
 # Quick Chart MCP Server
+[![smithery badge](https://smithery.ai/badge/@datafe/quick-chart-mcp)](https://smithery.ai/server/@datafe/quick-chart-mcp)
 
 A Model Context Protocol (MCP) server that provides chart tools, allowing it to interact with the [quick chart](https://github.com/typpo/quickchart) through a standardized interface. This implementation is based on the chart definition and enables users can open quick chart pages seamlessly.
 
@@ -16,6 +17,14 @@ The server implements the Model Context Protocol specification to standardize ch
 * pnpm (recommended), npm, or yarn
 
 ## Installation
+
+### Installing via Smithery
+
+To install quick-chart-mcp for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@datafe/quick-chart-mcp):
+
+```bash
+npx -y @smithery/cli install @datafe/quick-chart-mcp --client claude
+```
 
 ### Option 1: Install from npm (recommend for clients like Cursor/Cline)
 
