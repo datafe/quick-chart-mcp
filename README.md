@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/datafe-quick-chart-mcp-badge.png)](https://mseep.ai/app/datafe-quick-chart-mcp)
+
 # Quick Chart MCP Server
 [![smithery badge](https://smithery.ai/badge/@datafe/quick-chart-mcp)](https://smithery.ai/server/@datafe/quick-chart-mcp)
 
