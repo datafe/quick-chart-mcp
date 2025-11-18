@@ -5,6 +5,10 @@
 
 A Model Context Protocol (MCP) server that provides chart tools, allowing it to interact with the [quick chart](https://github.com/typpo/quickchart) through a standardized interface. This implementation is based on the chart definition and enables users can open quick chart pages seamlessly.
 
+<a href="https://glama.ai/mcp/servers/@datafe/quick-chart-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@datafe/quick-chart-mcp/badge" alt="Quick Chart Server MCP server" />
+</a>
+
 ## Overview
 
 This MCP server tools:
